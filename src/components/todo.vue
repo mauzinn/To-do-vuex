@@ -6,7 +6,7 @@
                 <form class="form-Todo" @submit="create_task">
                     <h4 class="toDo-title"> - Criar tasks</h4>
                     <input type="date" v-model="date" class="input date" required>
-                    <input type="text" v-model="text" class="input" placeholder="Oque você pensa em fazer?" required><br>
+                    <input type="text" v-model="text" maxlength="70" class="input" placeholder="Oque você pensa em fazer?" required><br>
                     <div class="center-item">
                         <button class="button-send">Criar</button>
                     </div>
@@ -47,6 +47,10 @@
                     id: 0,
                     state: 'Uncompleted'
                 }
+
+                //Limpar campos
+                    this.date = ''
+                    this.text = ''
 
                 this.$store.commit('criar_tasks', data)
             },
@@ -105,7 +109,7 @@
         border-radius: 13px;
         border: 1px solid grey;
         outline: none;
-        width: 270px;
+        width: 260px;
         margin: 5px;
     }
 
@@ -150,7 +154,7 @@
     }
 
     .date{
-        width: 100px;
+        width: 110px;
     }
 
     .toDo-title {
