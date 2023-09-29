@@ -1,6 +1,6 @@
 <template>
     <section class="center">
-        <editVue :id="id" :down="editShow" v-show="editShow" />
+        <editVue :id="id" v-show="editShow" />
         <section class="toDo">
             <h2 class="toDo-title">Todo-list</h2>
             <section>

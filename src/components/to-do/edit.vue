@@ -17,17 +17,7 @@
     export default {
         name: 'edit',
         props: {
-            down: String,
             id: Number
-        },
-        created() {
-            setTimeout(() => {
-                if (this.down == true) {
-                let alert = document.querySelector('.alert')
-
-                alert.classList += ' down'
-                }
-            }, 120)
         },
         methods: {
             Editar_task(e) {
@@ -68,10 +58,6 @@
         border-radius: 0px 0px 20px 20px;
         border: 2px solid grey;
         border-top: none;
-    }
-
-    .down{
-        animation: alert-down 2s linear;
     }
 
     .btn{
