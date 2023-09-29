@@ -1,5 +1,6 @@
 <template>
     <section class="center">
+        <editVue :id="id" :down="editShow" v-show="editShow" />
         <section class="toDo">
             <h2 class="toDo-title">Todo-list</h2>
             <section>
@@ -24,6 +25,7 @@
                             <div class="task-2">
                                 <img @click="destroy(task.id)" class="button-state" src="https://github.com/mauzinn/assets-for-future-projects/blob/main/declinio.png?raw=true">
                                 <img @click="complete(task.id)" class="button-state" src="https://github.com/mauzinn/assets-for-future-projects/blob/main/aceito.png?raw=true">
+                                <img @click="edit(task.id)" class="button-state edit" src="https://github.com/mauzinn/assets-for-future-projects/blob/main/edit.png?raw=true">
                             </div>
                         </article>
 
@@ -35,8 +37,19 @@
 </template>
 
 <script>
+    import editVue from './to-do/edit.vue'
+
     export default {
         name: 'todo',
+        data() {
+            return {
+                editShow: false,
+                id: 0
+            }
+        },
+        components: {
+            editVue
+        },
         methods: {
             create_task(e) {
                 e.preventDefault()
@@ -59,6 +72,10 @@
             },
             complete(id) {
                 this.$store.commit('complete_task', id)
+            },
+            edit(id) {
+                this.editShow = !this.editShow
+                this.id = id
             }
         }
     }
@@ -140,7 +157,7 @@
     }
 
     .task-1{
-        width: 70%;
+        width: 60%;
         word-break: break-all;
     }
 

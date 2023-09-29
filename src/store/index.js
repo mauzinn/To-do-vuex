@@ -22,6 +22,9 @@ export default createStore({
       data.state = 'Completed'
       State.tasks[id] = data
       console.log(data)
+    },
+    edit_tasks(State, data) {
+      State.tasks[data.id].text = data.text
     }
   },
   actions: {
